@@ -60,7 +60,7 @@
                             <p> <%= new Date(Date.parse(returnData.searchResult.statuses[i].created_at.replace(/( \+)/, ' UTC$1'))) %> </p>
                         </div>
                         <input type="text" name="reply" id="<%= returnData.searchResult.statuses[i].id  %>">
-                        <button class="replyTweet" data-tweetID="<%= returnData.searchResult.statuses[i].id  %>">
+                        <button class="replyTweet" data-number="<%= returnData.searchResult.statuses[i].id  %>">
                         <span class="glyphicon glyphicon-repeat"></span></button>
                     </li>
                 <% } %>
