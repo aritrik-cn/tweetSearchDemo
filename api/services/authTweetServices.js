@@ -90,7 +90,7 @@ exports.postReply = function (postContent, callback) {
 			req.on('error', function(e) {
 				console.log('problem with request: ' + e.message);
 			});
-			req.write(postContent);
+			req.write(JSON.stringify(postContent));
 			req.end();
 			/*https.get(options, function(result){
 				var buffer = '';

@@ -40,10 +40,10 @@ module.exports = {
 		//res.json("success");
 		var returnData = {};
 		var postContent = req.body;
-		authTweetServices.search(postContent, function (results) {
+		authTweetServices.postReply(postContent, function (results) {
 
 			returnData.searchResult = results;
-			res.json(result);
+			res.json(returnData);
 			//res.view('home/index', {returnData : returnData});
 		});
 	},

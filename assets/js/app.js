@@ -81,7 +81,7 @@ $(document).ready(function() {
             in_reply_to_status_id : tweetID
         }
         $.post('/twitter/reply', tweetReplyData, function (response) {
-            alert(response);
+            alert(JSON.stringify(response, null, 4));
         });
             /*$.ajax({
                 url : "/twitter/reply",
