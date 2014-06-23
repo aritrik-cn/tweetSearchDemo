@@ -22,9 +22,16 @@ module.exports = {
 	searchTweets: function (req, res) {
 		var searchKeyword = req.body.searchKey;
 		var returnData = {};
+		if (req.session.authUser) {
+            returnData.loginStat = true;
+            returnData.user = req.session.authUser;
+        } else {
+        	returnData.loginStat = false;
+        }
 		authTweetServices.search(searchKeyword, function (results) {
-			returnData = results;
-			res.json(200, {returnData : returnData});
+
+			returnData.searchResult = results;
+			res.view('home/index', {returnData : returnData});
 		});
 	},
 

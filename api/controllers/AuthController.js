@@ -1,5 +1,5 @@
 /**
- * HomeController
+ * AuthController
  *
  * @module      :: Controller
  * @description	:: A set of functions called `actions`.
@@ -17,23 +17,26 @@
 
 module.exports = {
     
-  
-	loadIndex: function (req, res) {
-		var returnData = {};
-		if (req.session.authUser) {
-            returnData.loginStat = true;
-            returnData.user = req.session.authUser;
-        } else {
-        	returnData.loginStat = false;
-        }
-		res.view('home/index', {returnData : returnData});
+    provider: function (req, res) {
+		console.log("Calling Auth :: " + req.params.provider);
+		loginServices.authenticate(req, res);
 	},
 
-	/**
-	* Overrides for the settings in `config/controllers.js`
-	* (specific to HomeController)
-	*/
-	_config: {}
+	callback: function (req, res) {
+		loginServices.authenticationCallback(req, res);
+	},
+  
+	logout: function (req, res) {
+		console.log(" **** Log Out User ****");
+		req.session.destroy();
+		res.redirect('/');
+	},
+
+  /**
+   * Overrides for the settings in `config/controllers.js`
+   * (specific to AuthController)
+   */
+  _config: {}
 
   
 };

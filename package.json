@@ -9,7 +9,10 @@
         "sails-disk": "~0.9.0",
         "ejs": "0.8.4",
         "optimist": "0.3.4",
-        "oauth" : "*"
+        "oauth" : "*",
+        "bcrypt" : "*",
+        "passport" : "*",
+        "passport-twitter" : "*"
     },
     "scripts": {
         "start": "node app.js",
