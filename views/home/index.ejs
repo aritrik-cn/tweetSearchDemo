@@ -46,7 +46,7 @@
             <ul class="media-list">
                 <% for (var i = 0; i < returnData.searchResult.search_metadata.count; i++) { %>
                     <li class="media row">
-                        <a class="pull-left" href="https://twitter.com/<%= returnData.searchResult.statuses[i].userscreen_name %>">
+                        <a class="pull-left" href="https://twitter.com/<%= returnData.searchResult.statuses[i].user.screen_name %>">
                             <img class="media-object" src="<%= returnData.searchResult.statuses[i].user.profile_image_url_https %>" alt="<%= returnData.searchResult.statuses[i].user.screen_name %>">
                         </a>
                         <div class="media-body">
