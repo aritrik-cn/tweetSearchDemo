@@ -62,7 +62,7 @@
                     </li>
                 <% } %>
             </ul>
-            <%= returnData.user %>
+            <%= JSON.stringify(returnData.user, null, 4) %>
         <% } %>
     <% } else { %>
         <div class="jumbotron">
