@@ -31,8 +31,8 @@ exports.authenticationCallback = function (req, res) {
                     } else {
                         returnData.loginStat = false;
                     }
-                    return res.redirect('/');
-                    //return res.view('home/index', {returnData : returnData});
+                    //return res.redirect('/');
+                    return res.view('home/index', {returnData : returnData});
                 });
             } else {
                 return res.redirect('/');
