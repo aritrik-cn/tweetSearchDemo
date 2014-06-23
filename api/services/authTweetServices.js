@@ -71,19 +71,20 @@ exports.postReply = function (postContent, callback) {
 			    }
 			};
 			var req = https.request(options, function(res) {
-				var buffer = '';
 				console.log('STATUS: ' + res.statusCode);
 				console.log('HEADERS: ' + JSON.stringify(res.headers));
 				res.setEncoding('utf8');
 				res.on('data', function (chunk) {
-					//console.log('BODY: ' + chunk);
-					buffer += chunk;
+					console.log('BODY: ' + chunk);
+					//buffer += chunk;
+					return callback (chunk);
+
 				});
-				result.on('end', function() {
+				/*result.on('end', function() {
 					//var returnData = buffer;
 					console.log("tweets" + buffer); // the tweets!
 					return callback (buffer);
-				});
+				});*/
 			});
 
 			req.on('error', function(e) {
