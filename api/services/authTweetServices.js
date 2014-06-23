@@ -70,7 +70,7 @@ exports.postReply = function (postContent, callback) {
 			        Authorization: 'Bearer ' + access_token
 			    }
 			};
-			var req = http.request(options, function(res) {
+			var req = https.request(options, function(res) {
 				var buffer = '';
 				console.log('STATUS: ' + res.statusCode);
 				console.log('HEADERS: ' + JSON.stringify(res.headers));
