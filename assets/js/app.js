@@ -98,5 +98,4 @@ $(document).ready(function() {
         
         console.log("tweetID :: " + tweetID + "___ " + Twitter);
     });
-
 })
