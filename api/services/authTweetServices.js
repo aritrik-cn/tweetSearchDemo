@@ -80,9 +80,9 @@ exports.postReply = function (postContent, callback) {
 					buffer += chunk;
 				});
 				result.on('end', function() {
-					var returnData = JSON.parse(buffer);
-					console.log("tweets" + returnData); // the tweets!
-					return callback (returnData);
+					//var returnData = buffer;
+					console.log("tweets" + buffer); // the tweets!
+					return callback (buffer);
 				});
 			});
 
