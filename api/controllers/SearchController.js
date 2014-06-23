@@ -34,7 +34,19 @@ module.exports = {
 			res.view('home/index', {returnData : returnData});
 		});
 	},
+	replyTweets: function (req, res) {
+		console.log("**** Reply Tweets ****");
+		console.log(req.body);
+		//res.json("success");
+		var returnData = {};
+		var postContent = req.body;
+		authTweetServices.search(postContent, function (results) {
 
+			returnData.searchResult = results;
+			res.json(result);
+			//res.view('home/index', {returnData : returnData});
+		});
+	},
 	/**
 	* Overrides for the settings in `config/controllers.js`
 	* (specific to SearchController)

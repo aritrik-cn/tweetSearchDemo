@@ -69,3 +69,34 @@
   window.io
 
 );
+
+
+$(document).ready(function() {
+    console.log("sending reply");
+    $(".replyTweet").click(function (event) {
+        var tweetID = $(event.currentTarget).data('number');
+        var Twitter = $("#"+tweetID).val();
+        var tweetReplyData = {
+            status : Twitter,
+            in_reply_to_status_id : tweetID
+        }
+        $.post('/twitter/reply', tweetReplyData, function (response) {
+            alert(response);
+        });
+            /*$.ajax({
+                url : "/twitter/reply",
+                type: "POST",
+                data : tweetReplyData,
+                success: function (data, textStatus, jqXHR) {
+                    //data - response from server
+                    alert(data);
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+                    alert("Failed");
+                }
+            });*/
+        
+        console.log("tweetID :: " + tweetID + "___ " + Twitter);
+    });
+
+})

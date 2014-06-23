@@ -28,10 +28,11 @@
 
 module.exports.routes = {
     'GET /' : 'HomeController.loadIndex',
+    'POST /' : 'SearchController.searchTweets',
     'GET /auth/:provider'          : 'AuthController.provider',
     'GET /auth/:provider/callback' : 'AuthController.callback',
-    'POST /' : 'SearchController.searchTweets',
-    'GET /logout' : 'AuthController.logout'
+    'GET /logout' : 'AuthController.logout',
+    'POST /twitter/reply' : 'SearchController.replyTweets'
     // By default, your root route (aka home page) points to a view
     // located at `views/home/index.ejs`
     // 
