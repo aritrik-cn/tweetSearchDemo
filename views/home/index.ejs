@@ -40,7 +40,7 @@
 
 
 <div class="container">
-    
+    <% if (typeof returnData.loginStat !== 'undefined' && returnData.loginStat === true) { %>
         <form class="form-signin" role="form" action="" method="post">
             <h2 class="form-signin-heading">Search</h2>
             <input type="text" class="form-control" placeholder="Please Provide your search keyword" name="searchKey" required="" autofocus="">
@@ -67,13 +67,11 @@
             </ul>
             
         <% } %>
-
-    <% if (typeof returnData.loginStat !== 'undefined' && returnData.loginStat === true) { %>
     <% } else { %>
-        <!--<div class="jumbotron">
+        <div class="jumbotron">
             <h1>Hello, User!</h1>
             <p>Please Login to Access the System.</p>
             <p><a href="/auth/twitter" class="btn btn-primary btn-lg" role="button" >Verify your self with Twitter.</a></p>
-        </div>-->
+        </div>
     <% } %>
 </div>
