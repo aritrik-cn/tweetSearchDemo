@@ -83,18 +83,6 @@ $(document).ready(function() {
         $.post('/twitter/reply', tweetReplyData, function (response) {
             alert(JSON.stringify(response, null, 4));
         });
-            /*$.ajax({
-                url : "/twitter/reply",
-                type: "POST",
-                data : tweetReplyData,
-                success: function (data, textStatus, jqXHR) {
-                    //data - response from server
-                    alert(data);
-                },
-                error: function (jqXHR, textStatus, errorThrown) {
-                    alert("Failed");
-                }
-            });*/
         
         console.log("tweetID :: " + tweetID + "___ " + Twitter);
     });
