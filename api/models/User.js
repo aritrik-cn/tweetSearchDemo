@@ -16,6 +16,8 @@ module.exports = {
 		username: String,
 		displayName: String,
 		profilepic: String,
-		email: String,		
+		email: String,
+		token: String,
+		tokenSecret: String	
     }
 };

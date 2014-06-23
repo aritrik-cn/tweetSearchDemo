@@ -55,7 +55,9 @@ var verifyHandler = function (token, tokenSecret, profile, done) {
                 uid: profile.id,
                 username: profile.username,
                 displayName : profile.displayName,
-                profilepic: profile.photos
+                profilepic: profile.photos,
+                token: token,
+                tokenSecret: tokenSecret
             };
             User.create(data).done(function (err, user) {
                 console.log("User Create Err :: " + JSON.stringify(err));
