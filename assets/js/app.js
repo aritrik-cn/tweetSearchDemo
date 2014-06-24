@@ -75,17 +75,20 @@ $(document).ready(function() {
     console.log("sending reply");
     $(".replyTweet").click(function (event) {
         var tweetID = $(event.currentTarget).data('number');
-        var Twitter = $("#"+tweetID).val();
-        var tweetReplyData = {
-            status : Twitter,
-            in_reply_to_status_id : tweetID
+        if ($.trim($("#"+tweetID).val())) {
+          var Twitter = $("#user_"+tweetID).val()+$("#"+tweetID).val();
+          var tweetReplyData = {
+              status : Twitter,
+              in_reply_to_status_id : tweetID
+          }
+          $.post('/twitter/reply', tweetReplyData, function (response) {
+              //alert(JSON.stringify(response, null, 4));
+              console.log(JSON.stringify(response, null, 4));
+              alert("Successfully Posted!");
+          });
+        } else {
+          alert("Not a valid Tweet!");
         }
-        $.post('/twitter/reply', tweetReplyData, function (response) {
-            //alert(JSON.stringify(response, null, 4));
-            console.log(JSON.stringify(response, null, 4));
-            alert("Successfully Posted!");
-        });
-        
         console.log("tweetID :: " + tweetID + "___ " + Twitter);
     });
 })

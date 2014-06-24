@@ -59,7 +59,8 @@
                             <%= returnData.searchResult.statuses[i].text %>
                             <p> <%= new Date(Date.parse(returnData.searchResult.statuses[i].created_at.replace(/( \+)/, ' UTC$1'))) %> </p>
                         </div>
-                        <input type="text" name="reply" id="<%= returnData.searchResult.statuses[i].id_str  %>" value="@<%= returnData.searchResult.statuses[i].user.screen_name %>  ">
+                        <input type="text" name="reply_user" id="user_<%= returnData.searchResult.statuses[i].id_str  %>" value="@<%= returnData.searchResult.statuses[i].user.screen_name %>  " readonly>
+                        <input type="text" name="reply" id="<%= returnData.searchResult.statuses[i].id_str  %>" placeholder="Reply This Tweet" required>
                         <button class="replyTweet" data-number="<%= returnData.searchResult.statuses[i].id_str  %>">
                         <span class="glyphicon glyphicon-repeat"></span></button>
                     </li>
