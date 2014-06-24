@@ -81,7 +81,8 @@ $(document).ready(function() {
             in_reply_to_status_id : tweetID
         }
         $.post('/twitter/reply', tweetReplyData, function (response) {
-            alert(JSON.stringify(response, null, 4));
+            //alert(JSON.stringify(response, null, 4));
+            console.log(JSON.stringify(response, null, 4));
         });
         
         console.log("tweetID :: " + tweetID + "___ " + Twitter);

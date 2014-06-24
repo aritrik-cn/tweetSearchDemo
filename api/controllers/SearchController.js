@@ -42,8 +42,8 @@ module.exports = {
 		var postContent = req.body;
 		authTweetServices.postReply(postContent, function (results) {
 
-			returnData.searchResult = results;
-			res.json(returnData);
+			//returnData.searchResult = results;
+			res.send(results);
 			//res.view('home/index', {returnData : returnData});
 		});
 	},
