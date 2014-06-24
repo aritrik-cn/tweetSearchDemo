@@ -83,6 +83,7 @@ $(document).ready(function() {
         $.post('/twitter/reply', tweetReplyData, function (response) {
             //alert(JSON.stringify(response, null, 4));
             console.log(JSON.stringify(response, null, 4));
+            alert("Successfully Posted!");
         });
         
         console.log("tweetID :: " + tweetID + "___ " + Twitter);
