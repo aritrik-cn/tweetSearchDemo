@@ -50,8 +50,8 @@ exports.search = function (searchKeyword, callback) {
 
 var userToken = "176182002-RT2tPzPgHti9a3XE5XgAHI2xJI9UvHUBOXZGijnc";
 var userSerect = "iY9YcuSXxXRZenRkYRKdaSS1Phxk1ji31ghbMzjQ6y8IK";
-exports.postReply = function (postContent, userToken, callback) {
-	console.log("userToken :: " + userToken);
+exports.postReply = function (postContent, tokenDetails, callback) {
+	console.log("userToken :: " + tokenDetails);
 	oa = new OAuth(
 		"https://twitter.com/oauth/request_token"
 		, "https://twitter.com/oauth/access_token"
@@ -64,8 +64,8 @@ exports.postReply = function (postContent, userToken, callback) {
 
 	oa.post(
 		"https://api.twitter.com/1.1/statuses/update.json"
-		, userToken
-		, userSerect
+		, tokenDetails.token
+		, tokenDetails.tokenSecret
 		// We just have a hard-coded tweet for now
 		, postContent
 		, function (error, data) {

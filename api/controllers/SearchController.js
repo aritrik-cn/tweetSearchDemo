@@ -40,8 +40,11 @@ module.exports = {
 		//res.json("success");
 		var returnData = {};
 		var postContent = req.body;
-		var userToken = req.session.authUser.token;
-		authTweetServices.postReply(postContent, userToken, function (results) {
+		var tokenDetails = {
+			userToken: req.session.authUser.token,
+			userSerect : req.session.authUser.tokenSecret
+		};
+		authTweetServices.postReply(postContent, tokenDetails, function (results) {
 
 			//returnData.searchResult = results;
 			res.send(results);
