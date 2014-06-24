@@ -64,8 +64,8 @@ exports.postReply = function (postContent, tokenDetails, callback) {
 
 	oa.post(
 		"https://api.twitter.com/1.1/statuses/update.json"
-		, tokenDetails.token
-		, tokenDetails.tokenSecret
+		, tokenDetails.userToken
+		, tokenDetails.userSerect
 		// We just have a hard-coded tweet for now
 		, postContent
 		, function (error, data) {
