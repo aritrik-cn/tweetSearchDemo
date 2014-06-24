@@ -1,4 +1,7 @@
-
+/**
+ * 
+ * 
+**/
 
 // Load Required Node Modules
 var OAuth 	= require('oauth').OAuth;
@@ -8,16 +11,14 @@ var https  	= require('https');
 var twitterConsumerKey = '8qS0KAEMEApPPwMOp3xqw';
 var twitterConsumerSecret = 'HoZyZVSDmhjLbl6Ixc4iSBtXTChkyADllbIafDMco';
 
-var oauth2 = new OAuth2(twitterConsumerKey,
-	twitterConsumerSecret,
-	'https://api.twitter.com/',
-	null,
-	'oauth2/token', 
-	null
-);
-
 exports.search = function (searchKeyword, callback) {
-	
+	var oauth2 = new OAuth2(twitterConsumerKey,
+		twitterConsumerSecret,
+		'https://api.twitter.com/',
+		null,
+		'oauth2/token', 
+		null
+	);
 
 	oauth2.getOAuthAccessToken(
 		'',
@@ -50,41 +51,7 @@ exports.search = function (searchKeyword, callback) {
 var userToken = "176182002-RT2tPzPgHti9a3XE5XgAHI2xJI9UvHUBOXZGijnc";
 var userSerect = "iY9YcuSXxXRZenRkYRKdaSS1Phxk1ji31ghbMzjQ6y8IK";
 exports.postReply = function (postContent, callback) {
-	oauth2.getOAuthAccessToken(
-		'',
-		{'grant_type':'client_credentials'},
-		function (e, access_token, refresh_token, results) {
-			console.log('bearer: ', access_token);
-			var options = {
-			    hostname: 'api.twitter.com',
-			    //path: '/1.1/search/tweets.json?q='+ searchKeyword,
-			    path: '/1.1/statuses/update.json',
-			    headers: {
-			        Authorization: 'Bearer ' + access_token
-			    }
-			};
-			var req = https.request(options, function(res) {
-				console.log('STATUS: ' + res.statusCode);
-				console.log('HEADERS: ' + JSON.stringify(res.headers));
-				res.setEncoding('utf8');
-				res.on('data', function (chunk) {
-					console.log('BODY: ' + chunk);
-					//buffer += chunk;
-					return callback (chunk);
-
-				});
-				
-			});
-
-			req.on('error', function(e) {
-				console.log('problem with request: ' + e.message);
-			});
-			req.write(JSON.stringify(postContent));
-			req.end();
-			
-		}
-	);
-	/*oa = new OAuth(
+	oa = new OAuth(
 		"https://twitter.com/oauth/request_token"
 		, "https://twitter.com/oauth/access_token"
 		, twitterConsumerKey
@@ -103,7 +70,7 @@ exports.postReply = function (postContent, callback) {
 		, function (error, data) {
 			return callback (data);
 		}	
-	);*/
+	);
 }
 /*exports.postReply = function (postContent, callback) {
 	var oauth2 = new OAuth2(twitterConsumerKey,
@@ -163,4 +130,4 @@ exports.postReply = function (postContent, callback) {
 			});
 		}
 	);
-}
+}*/
